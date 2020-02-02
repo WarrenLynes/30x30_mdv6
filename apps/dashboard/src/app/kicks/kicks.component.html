@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="col-50 list-col">
+    <mdv6-list
+      [data]="shoes$ | async"
+      [selected]="selectedShoe$ | async"
+      (selectt)="selectShoe($event)"
+      (delete)="deleteShoe($event)"
+    ></mdv6-list>
+  </div>
+
+  <div class="col-50">
+    <mdv6-detail
+      *ngIf="showDetail"
+      [selected]="selectedShoe$ | async"
+      (saved)="saveShoe($event)"
+      (cancelled)="cancel()">
+      ></mdv6-detail>
+  </div>
+
+</div>
